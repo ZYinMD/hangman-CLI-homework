@@ -1,0 +1,19 @@
+{
+  "name": "hangman-cli",
+  "version": "1.0.0",
+  "description": "a hangman game that runs in terminal",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZYinMD/hangman-CLI-homework.git"
+  },
+  "author": "Z Yin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZYinMD/hangman-CLI-homework/issues"
+  },
+  "homepage": "https://github.com/ZYinMD/hangman-CLI-homework#readme"
+}
