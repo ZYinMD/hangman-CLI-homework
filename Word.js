@@ -1,9 +1,3 @@
-/*
-to be refactored:
-
-prototype
-*/
-
 var Letter = require('./Letter.js');
 var Word = function (word) {
   this.lives = 7; //initial remaining guesses
