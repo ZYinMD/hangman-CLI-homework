@@ -1,39 +1,37 @@
+/*
+to be refactored:
+
+prototype
+*/
+
 var Letter = require('./Letter.js');
 var Word = function (word) {
+  this.lives = 7; //initial remaining guesses
+
+  // construct the new word as an array containing letter objects
   this.letterArray = [];
-  for (let i of word) {
-    this.letterArray.push(new Letter(i));
-  }
+  for (let i of word) this.letterArray.push(new Letter(i));
+
+  //the method that returns a string to display the current word status
   this.display = () => {
     let result = [];
-    for (let i of this.letterArray) {
-      result.push(i.display);
-    }
+    for (let i of this.letterArray) result.push(i.display());
     return result.join(' ');
   };
-  this.lives = 7;
+
+  //array that contains the already tried letters
   this.guessedLetters = [];
+
+  //the guess method takes a letter input and perform the guess
   this.guess = (letter) => {
-    if (this.guessedLetters.includes(letter)) {
-      console.log('You have guessed this one!');
-      return;
-    }
+    if (this.guessedLetters.includes(letter)) return 'dupe'; //first check if this letter has been guessed
+    else this.guessedLetters.push(letter); // if not, push letter into guessedLetters
+    let result = false; //the return value of this method
     for (let i of this.letterArray) {
-      i.guess(letter);
+      if (i.guess(letter)) result = true; //if the letter matches any letter in the word, return true
     }
-    var display = this.display();
-    console.log(display);
-    if (display.includes('_')) {
-      this.lives--;
-      if (this.lives == 0) {
-        this.lost();
-      }
-    } else {
-      this.won();
-    }
+    return result;
   };
-  this.won = () => console.log('You won!');
-  this.lost = () => console.log('You lost!');
 }
 
 module.exports = Word;
