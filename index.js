@@ -16,17 +16,17 @@ function prompt() {
     .then( input => {
       switch (word.guess(input.letter)) {
         case 'dupe':
-          console.log('You\'ve already guessed this one!'); //when already guessed this one
+          console.log('You\'ve already guessed this one!'); // when already guessed this one
           break;
         case true:
-          console.log('Awesome choice!'); //when guessed right
+          console.log('Awesome choice!'); // when guessed right
           break;
         case false:
-          console.log(`Wrong! Remaining guesses: ${--word.lives}`); //when guessed wrong
+          console.log(`Wrong! Remaining guesses: ${--word.lives}`); // when guessed wrong
       }
-      if (word.lives == 0) console.log(`You lost! The answer is "${randomWord}"`); //game over
-      else if (!word.display().includes('_')) console.log(` ${word.display()}\nYou won!`); //won
-      else prompt(); //recursion
+      if (word.lives == 0) console.log(`You lost! The answer is "${randomWord}"`); // game over
+      else if (!word.display().includes('_')) console.log(` ${word.display()}\nYou won!`); // won
+      else prompt(); // recursion
     })
 }
 
