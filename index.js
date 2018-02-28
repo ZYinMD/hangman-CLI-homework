@@ -3,14 +3,14 @@ var Word = require('./Word.js')
 var wordPool = require('./common-english-words.json') //top 1000 common English words excluding four-letter-or-less words
 var randomWord = wordPool[Math.floor(Math.random() * wordPool.length)];
 var word = new Word(randomWord);
-console.log('Welcome to the CLI hangman game.')
+console.log('\n - Welcome to the CLI hangman game.\n\n - Starting new game...\n')
 prompt();
 
 function prompt() {
   inquirer.prompt({
       type: 'input',
       name: 'letter',
-      message: `${word.display()} \nWhat's your guess?`,
+      message: `${word.display()} \n Please guess a letter:`,
       prefix: ''
     })
     .then( input => {
