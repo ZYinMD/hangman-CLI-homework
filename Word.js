@@ -1,12 +1,12 @@
 var Letter = require('./Letter.js');
 var Word = function (word) {
-  this.lives = 7; //initial remaining guesses
+  this.lives = 7; // initial remaining guesses
 
   // construct the new word as an array containing letter objects
   this.letterArray = [];
   for (let i of word) this.letterArray.push(new Letter(i));
 
-  // method that returns a string to display the current word status
+  // method that returns a string to display the current word, unrevealed letters are shown as '_'
   this.display = () => {
     let result = [];
     for (let i of this.letterArray) result.push(i.display());
